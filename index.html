@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Xtrem: Un endless runner pixel art relajante">
+    <title>Xtrem - Endless Runner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='2' y='2' width='20' height='20' fill='%23333'/></svg>">
+</head>
+<body>
+    <div id="menu">
+        <h1>Xtrem</h1>
+        <p id="credits">Desarrollado con Grok 3 - xAI<br>
+            Música por Suno AI
+        </p>
+        <button id="startButton" aria-label="Comenzar juego">Comenzar</button>
+    </div>
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <p id="finalScore"></p>
+        <button id="restartButton" aria-label="Reintentar juego">Reintentar</button>
+    </div>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <div id="controls">
+        <button id="speedDownButton" aria-label="Reducir velocidad">-</button>
+        <button id="speedUpButton" aria-label="Aumentar velocidad">+</button>
+        <button id="boostButton" aria-label="Activar boost">Boost</button>
+        <button id="jumpButton" aria-label="Saltar">Jump</button>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="audio1.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>

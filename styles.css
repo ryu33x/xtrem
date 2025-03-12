@@ -1,0 +1,168 @@
+/*
+    Desarrollado con Grok 3 - xAI
+    Un endless runner pixel art para "Xtrem"
+*/
+
+/* Reset y estilo base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #111;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Canvas responsive */
+canvas {
+    background-color: #111;
+    border: 2px solid #444;
+    max-width: 100%;
+    max-height: 80vh;
+    width: 800px;
+    height: 400px;
+    image-rendering: pixelated;
+}
+
+/* Controles táctiles */
+#controls {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    max-width: 800px;
+    display: none;
+    justify-content: space-around;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+/* Estilo de botones */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #666;
+    border-radius: 8px;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #222;
+}
+
+button:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #222;
+}
+
+button:active {
+    background-color: #555;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #222;
+}
+
+/* Menú y Game Over */
+#menu, #gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border: 4px solid #666;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+#gameOver {
+    display: none;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 15px; /* Reducido para dejar espacio a los créditos */
+    text-shadow: 4px 4px 0 #000, -4px -4px 0 #000, 4px -4px 0 #000, -4px 4px 0 #000;
+}
+
+/* Estilo para los créditos */
+#credits {
+    font-size: 14px; /* Más pequeño que el título */
+    color: #ccc; /* Gris claro para no competir con el título */
+    margin-bottom: 20px; /* Espacio antes del botón */
+    text-shadow: 2px 2px 0 #000; /* Sombra pixelada más sutil */
+}
+
+/* Estilo general para párrafos (incluye #finalScore) */
+p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Media queries para móviles */
+@media (max-width: 600px) {
+    canvas {
+        width: 100%;
+        height: 50vh;
+    }
+
+    #controls {
+        display: flex;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-width: 2px;
+        box-shadow: 0 3px 0 #222;
+    }
+
+    button:hover {
+        transform: none;
+        box-shadow: 0 3px 0 #222;
+    }
+
+    button:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 0 #222;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    #credits {
+        font-size: 12px; /* Más pequeño en móviles */
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    #menu, #gameOver {
+        padding: 20px;
+        width: 90%;
+    }
+}
+
+/* Fuente pixel art */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
